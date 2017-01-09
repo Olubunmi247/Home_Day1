@@ -7,11 +7,11 @@ describe("Data types tests ", function() {
   describe("Case for some falsy values", function() {
 
     it("should return 'no value' for null", function() {
-      expect(myApp.dataTypes(null)).to.deep.equal('no value');
+      expect(myApp.dataTypes(null)).to.equal('no value');
     });
 
     it("should return 'no value' for undefined", function() {
-      expect(myApp.dataTypes(undefined)).to.deep.equal('no value');
+      expect(myApp.dataTypes(undefined)).to.equal('no value');
     });
 
   });

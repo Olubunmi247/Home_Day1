@@ -2,19 +2,18 @@
 
 module.exports = {
 	dataTypes: function(input){
-		var dataType = input.constructor;
-		
-		if (dataType === Array){
+		var dataType = typeof input;
+
+		if (dataType === 'object' && input instanceof Array){
 			return input[2];
 		}
-
-		else if (dataType === String){
+		if (dataType === 'string'){
 			return input.length;
 		}
-		else if (dataType === Boolean){
+		if (dataType === 'boolean'){
 			return input;
 		}
-		else if (dataType === Number){
+		if (dataType === 'number'){
 			if(input < 100){
 				return 'less than 100';
 			}
@@ -25,15 +24,12 @@ module.exports = {
 				return 'more than 100';
 			}
 		}
-		else if (dataType === Function){
+		if (dataType === 'function'){
 			return input(true);
 		}
-		
-
-		if(typeof(input) === 'undefined' || dataType === null){
-			return 'no value'
-		}
-		
-	}
+		if (dataType === 'object' && input === null || dataType === 'undefined') {
+        return "no value";
+    	}
+    }
 	
 }
